@@ -1,5 +1,4 @@
-/********** RESET CSS ***********/
-
+/*---------Reset Css--------------------------------*/
 /* Box sizing rules */
 *,
 *::before,
@@ -12,7 +11,6 @@ html {
   -moz-text-size-adjust: none;
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
-  align-content: s;
 }
 
 /* Remove default margin in favour of better control in authored CSS */
@@ -33,12 +31,6 @@ dd {
 ul[role="list"],
 ol[role="list"] {
   list-style: none;
-}
-
-/* Set core body defaults */
-body {
-  min-height: 100vh;
-  line-height: 1.5;
 }
 
 /* Set shorter line heights on headings and interactive elements */
@@ -92,19 +84,445 @@ textarea:not([rows]) {
   scroll-margin-block: 5ex;
 }
 
-/******** UTILITY CLASSES *********/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
 
-.flex :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+:root {
+  /*-------fontsize-----*/
+  --fs-900: 3rem;
+  --fs-800: 2.62rem;
+  --fs-700: 2rem;
+  --fs-600: 1.5rem;
+  --fs-500: 1rem;
+  --fs-400: 0.9375rem;
+  --fs-300: 1rem;
+  --fs-200: 0.875rem;
+  /*------------------*/
+  /*-------------fontfamily----------------------*/
+  --ff-inter: "Inter", sans-serif;
+  --ff-play: "Playfair Display", serif;
+  --ff-serif: "Bellefair", serif;
+  --ff-sans-cond: "Barlow Condensed", sans-serif;
+  --ff-sans-normal: "Barlow", sans-serif;
+  /*----------------------------------------------*/
+  --fw-400: 400;
+  --fw-500: 500;
+  --fw-600: 600;
+  --fw-700: 700;
+  --fw-800: 800;
+  /*-------Color---------*/
+  --clr-red: #af0c48;
+  --clr-black: #0a0a14;
+  --clr-white: #fff;
+  --clr-gray: #f4f4f4;
+  --clr-lightgray: #777777;
+  --clr-blue: #ddeefe;
+  --clr-green: #d9f6f1;
+  --clr-grayblue: #2a262b;
+  --clr-darkgray: #484148;
+  --clr-middlegray: #525252;
+  --clr-darkblue: #2d3235;
+  --clr-darkbluegreen: #495351;
+  /*--------------------------------*/
+}
+
+html {
+  font-size: 16px;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
   line-height: 1.5;
-  font-weight: 400;
+  font-size: 16px;
+}
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+/*------------Utility Classes-------------- */
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.flex {
+  display: flex;
+}
+
+.column {
+  flex-direction: column;
+}
+.flex-basis-30 {
+  flex-basis: 30%;
+}
+.flex-basis-40 {
+  flex-basis: 40%;
+}
+
+.flex-basis-50 {
+  flex-basis: 50%;
+}
+
+.flex-basis-60 {
+  flex-basis: 60%;
+}
+
+.flex-basis-70 {
+  flex-basis: 70%;
+}
+
+.flex-basis-80 {
+  flex-basis: 80%;
+}
+
+.flex-basis-90 {
+  flex-basis: 90%;
+}
+
+.js-between {
+  justify-content: space-between;
+}
+
+.js-around {
+  justify-content: space-around;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+.wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+
+.js-center {
+  justify-content: center;
+}
+
+.alg-center {
+  align-items: center;
+}
+
+.tx-center {
+  text-align: center;
+}
+
+/*------gap----------------*/
+
+.gap-1 {
+  gap: 1rem;
+}
+
+.gap-2 {
+  gap: 1.5rem;
+}
+
+.gap-3 {
+  gap: 2rem;
+}
+
+.gap-4 {
+  gap: 3rem;
+}
+
+.padding-top-1 {
+  padding-top: 1rem;
+}
+.padding-top-2 {
+  padding-top: 1.5rem;
+}
+.padding-top-3 {
+  padding-top: 2rem;
+}
+
+.padding-bottom-1 {
+  padding-bottom: 1rem;
+}
+.padding-bottom-2 {
+  padding-bottom: 1.5rem;
+}
+.padding-bottom-3 {
+  padding-bottom: 2rem;
+}
+
+.padding-right-1 {
+  padding-right: 3rem;
+}
+.padding-right-2 {
+  padding-right: 4.5rem;
+}
+.padding-right-3 {
+  padding-right: 6rem;
+}
+
+.padding-right-4 {
+  padding-right: 9rem;
+}
+
+.padding-left-1 {
+  padding-left: 3rem;
+}
+.padding-left-2 {
+  padding-left: 4.5rem;
+}
+.padding-left-3 {
+  padding-left: 6rem;
+}
+.padding-left-4 {
+  padding-left: 9rem;
+}
+
+/*-------background-color---------*/
+.bg-white {
+  background-color: var(--clr-white);
+}
+.bg-gray {
+  background-color: var(--clr-gray);
+}
+.bg-blue {
+  background-color: var(--clr-blue);
+}
+.bg-green {
+  background-color: var(--clr-green);
+}
+.bg-grayblue {
+  background-color: var(--clr-grayblue);
+}
+.bg-darkgray {
+  background-color: var(--clr-darkgray);
+}
+.bg-middlegray {
+  background-color: var(--clr-middlegray);
+}
+.bg-darkblue {
+  background-color: var(--clr-darkblue);
+}
+.bg-darkbluegreen {
+  background-color: var(--clr-darkbluegreen);
+}
+/*---font-size*/
+.fs-900 {
+  font-size: var(--fs-900);
+}
+.fs-800 {
+  font-size: var(--fs-800);
+}
+.fs-700 {
+  font-size: var(--fs-700);
+}
+.fs-600 {
+  font-size: var(--fs-600);
+}
+.fs-500 {
+  font-size: var(--fs-500);
+}
+.fs-400 {
+  font-size: var(--fs-400);
+}
+.fs-300 {
+  font-size: var(--fs-300);
+}
+.fs-200 {
+  font-size: var(--fs-200);
+}
+/*---font-weight--*/
+.fw-700 {
+  font-weight: var(--fw-700);
+}
+.fw-600 {
+  font-weight: var(--fw-600);
+}
+.fw-500 {
+  font-weight: var(--fw-500);
+}
+.fw-400 {
+  font-weight: var(--fw-400);
+}
+/*---font-family*/
+.ff-inter {
+  font-family: var(--ff-inter);
+}
+
+.ff-play {
+  font-family: var(--ff-play);
+}
+
+/*-------line-height---------*/
+
+.lh-1 {
+  line-height: 1rem;
+}
+
+.lh-2 {
+  line-height: 2rem;
+}
+
+.lh-3 {
+  line-height: 3rem;
+}
+.lh-4 {
+  line-height: 4rem;
+}
+
+/*-------text-color---------*/
+
+.tx-white {
+  color: var(--clr-white);
+}
+.tx-black {
+  color: var(--clr-black);
+}
+.tx-red {
+  color: var(--clr-red);
+}
+
+.tx-gray {
+  color: var(--clr-lightgray);
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.mode {
+  align-self: flex-end;
+}
+
+.outline {
+  border: blue solid 2px;
+}
+
+.profile-card {
+  border-radius: 1rem;
+  box-shadow: 5px 5px var(--clr-lightgray);
+}
+
+.profileimg {
+  background-image: url("https://s3-alpha-sig.figma.com/img/76b0/6993/b04fd1fa29a883e2f4b8b8577a5c82eb?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=L4N~ozvxBUVaPenDRBq45XCDlY5QNRF5mggdF5gE~yYGR5I-zKgPrVymBJZjzVdB9HbvK~-o0-Z1-hphzK-HLxoX4O0~51SoxymaQUv-FJYDu1h0gBHYJEQwXpFIEGahuhkZG08uJrSCjMw6xDAGSafzbFK-~67LRUl80~LhFECPF9RGMCYNjff5R7ygEJkGfD4acMnY139gzL4HIk4sf0tq16P2NF065TTaw-5ipf8XzvP5x-E335rNEbMDSUYjyVIP46Lz6qHaXCJRqrQs6X8zkWYfAcHahB1JHe1XG6vZD4N4khlQgWyic0uckNHvkePHeA8sbzP47irvLmcH0A__");
+  background-position: center;
+  background-size: cover;
+  aspect-ratio: 1/1;
+  min-width: 18.75rem;
+  border-radius: 2rem;
+  box-shadow: -1rem -1rem #e92577;
+}
+
+.radio-btn {
+  width: 50px;
+  height: 30px;
+  padding: 5px;
+  background-color: #27173a;
+  border-radius: 15px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.radio-inner {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  background-color: #ffc207;
+  border-radius: 50%;
+  transition: all 0.6s;
+}
+
+.radio-inner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 100%;
+  height: 100%;
+  background-color: #27173a;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: all 0.6s;
+}
+
+.active {
+  transform: translateX(calc(50px - 30px));
+}
+
+.active::before {
+  left: -9px;
+  transform: scale(1);
 }
