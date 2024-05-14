@@ -5,6 +5,10 @@ import node from "./assets/Skills/nodeLogo.png";
 import react from "./assets/Skills/reactLogo.png";
 import vs from "./assets/Skills/vsLogo.png";
 
+import laptop from "./assets/Projects/laptop.png";
+import right from "./assets/Projects/right.png";
+import left from "./assets/Projects/left.png";
+
 export const skillsData = [
   {
     name: "javascript",
@@ -70,4 +74,51 @@ export const profileData = {
     en: { name: "Preferred Role", value: "Frontend,UI" },
     tr: { name: "Tercih Ettiği Rol", value: "Frontend,UI" },
   },
+};
+
+export const projectsData = {
+  en: [
+    {
+      title: "Random Jokes",
+      content:
+        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam aut, odit laborum aliquam voluptatum nisi mollitia.",
+      skills: ["react", "vercel", "axios", "router"],
+      images: [
+        { src: laptop, alt: "laptop" },
+        { src: left, alt: "left" },
+      ],
+    },
+    {
+      title: "Are you bored?",
+      content:
+        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam aut, odit laborum aliquam voluptatum nisi mollitia minima accusamus ratione soluta aperiam sit voluptate? Dicta quod deserunt quam temporibus cumque magnam!",
+      skills: ["react", "redux", "axios", "router", "vercel"],
+      images: [
+        { src: laptop, alt: "laptop" },
+        { src: right, alt: "right" },
+      ],
+    },
+  ],
+  tr: [
+    {
+      title: "Rastgele Şakalar",
+      content:
+        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam aut, odit laborum aliquam voluptatum nisi mollitia.",
+      skills: ["react", "vercel", "axios", "router"],
+      images: [
+        { src: laptop, alt: "laptop" },
+        { src: left, alt: "left" },
+      ],
+    },
+    {
+      title: "Sıkıldın mı?",
+      content:
+        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam aut, odit laborum aliquam voluptatum nisi mollitia minima accusamus ratione soluta aperiam sit voluptate? Dicta quod deserunt quam temporibus cumque magnam!",
+      skills: ["react", "redux", "axios", "router", "vercel"],
+      images: [
+        { src: laptop, alt: "laptop" },
+        { src: right, alt: "right" },
+      ],
+    },
+  ],
 };
