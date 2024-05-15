@@ -4,7 +4,7 @@ const Profile = () => {
   return (
     <section className="bg-gray flex js-center  padding-top-3 padding-bottom-3">
       <div className="bg-gray flex column js-center alg-center gap-2 flex-basis-80 padding-bottom-3">
-        <h1 className="fs-800 fw-500 lh-3">Profile</h1>
+        <h2 className="fs-800 fw-500 lh-3">Profile</h2>
         <div className="flex js-center alg-center gap-4 ">
           <article className="profile-card bg-white  flex column  gap-1  flex-basis-40 padding-top-2 padding-bottom-2 padding-left-1">
             <h3 className="ff-play fs-600 tx-red">Basic Information</h3>{" "}
