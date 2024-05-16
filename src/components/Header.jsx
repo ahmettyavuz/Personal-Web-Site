@@ -1,28 +1,68 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { headerData } from "../data";
+import useLocalStorage from "../hooks/useLocalStorage";
+import { useContext } from "react";
+import { Context } from "../context/context";
 
 const Header = () => {
+  const [darkMode, setDarkMode] = useLocalStorage("Theme", false);
+  const { lang, toogle } = useContext(Context);
+
+  const toggleTheme = () => {
+    setDarkMode(!darkMode);
+  };
+  const toggleWithDiv = (e) => {
+    toggleTheme(); // Button işlevini çağır
+    e.stopPropagation(); // Div'in ana elementlere tıklama olayını iletmemesini sağla
+  };
+
   return (
     <>
-      <header className="bg-gray flex js-center padding-top-3 padding-bottom-3">
-        <div className="flex column alg-center gap-3 flex-basis-80 padding-bottom-3 ">
-          <div className="flex mode alg-center gap-1 padding-top-3 padding-bottom-3 uppercase ">
-            <div className="radio-btn">
-              <div className="radio-inner active"></div>
-            </div>
-            <div className="fw-700 lh-1 tx-gray">
-              Dark mode | <span className="tx-red fw-700 lh-1">Türkçe</span>`ye
-              geç{" "}
-            </div>
+      <header
+        id="top"
+        className="bg-gray flex js-center padding-top-3 padding-bottom-3 position-relative"
+        value={`${darkMode ? "dark" : ""}`}
+      >
+        <div className="polo-gray position-absolute"></div>
+        <div className="circle position-absolute"></div>
+        <div className="diglet-pink position-absolute"></div>
+        <div className="flex column alg-center gap-3 flex-container padding-bottom-3 ">
+          <div className="flex mode alg-center js-center  gap-1 padding-top-3 padding-bottom-3 uppercase padding-right-2">
+            <button
+              id="mode"
+              className="radio-btn"
+              name="mode"
+              onClick={toggleTheme}
+            >
+              <div
+                htmlFor="mode"
+                className={`radio-inner ${darkMode ? "active" : ""}`}
+                onClick={toggleWithDiv}
+              ></div>
+            </button>
+            <label htmlFor="mode" className="fw-700 lh-1 tx-gray uppercase">
+              {headerData[lang].selections.mode[darkMode ? 1 : 0]}{" "}
+            </label>
+            <span>|</span>
+            <button
+              className="tx-red bg-gray fw-700 lh-1 uppercase"
+              name="language"
+              onClick={toogle}
+            >
+              {headerData[lang].selections.language}
+            </button>
           </div>
 
-          <div className="flex  space-between alg-center gap-3 ">
-            <div style={{ flexBasis: "65%" }} className=" flex column gap-3  ">
-              <p className="fs-700 fw-400">Hi! 👋</p>
-              <p className="fs-800 fw-500 lh-4">
-                I’m Almila. I’m a full-stack developer. I can craft solid and
-                scalable frontend products. Let’s meet!
-              </p>
+          <div className="flex  space-between alg-center js-center gap-3 wrap-reverse padding-right-2 padding-left-2">
+            <div
+              style={{ flexBasis: "65%" }}
+              className=" flex column gap-3 position-relative "
+            >
+              <div className="fs-700 fw-400"> {headerData[lang].title}👋</div>
+              <h1 className=" text-pink fs-800 fw-500 lh-4 z-index-2">
+                {headerData[lang].content}
+              </h1>
               <div className="flex gap-2 padding-top-1">
                 <FontAwesomeIcon className="fa-3x" icon={faLinkedin} />
                 <FontAwesomeIcon className="fa-3x" icon={faGithub} />
@@ -30,12 +70,14 @@ const Header = () => {
               </div>
               <div className="fs-500 fw-400 lh-2">
                 <p>
-                  Currently <span className="tx-red">Freelancing</span>{" "}
-                  <span className="tx-red">for UX, UI, & Web Design</span>{" "}
-                  Project .
+                  {headerData[lang].text[0]}{" "}
+                  <span className="tx-red">{headerData[lang].text[1]}</span>{" "}
+                  {headerData[lang].text[2]}{" "}
+                  <span className="tx-red"> {headerData[lang].text[3]}</span>{" "}
+                  {headerData[lang].text[4]}
                 </p>
                 <p>
-                  Invite me to join your team -{" "}
+                  {headerData[lang].text[5]} -{" "}
                   <a href="pratamaiosi@gmail.com" className="tx-red">
                     pratamaiosi@gmail.com
                   </a>

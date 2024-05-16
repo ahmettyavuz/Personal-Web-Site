@@ -164,7 +164,8 @@ summary,
 time,
 mark,
 audio,
-video {
+video,
+button {
   margin: 0;
   padding: 0;
   border: 0;
@@ -172,6 +173,10 @@ video {
   font: inherit;
   vertical-align: baseline;
   text-decoration: none;
+}
+
+#root {
+  overflow: hidden;
 }
 
 :root {
@@ -189,9 +194,6 @@ video {
   /*-------------fontfamily----------------------*/
   --ff-inter: "Inter", sans-serif;
   --ff-play: "Playfair Display", serif;
-  --ff-serif: "Bellefair", serif;
-  --ff-sans-cond: "Barlow Condensed", sans-serif;
-  --ff-sans-normal: "Barlow", sans-serif;
   /*----------------------------------------------*/
   --fw-400: 400;
   --fw-500: 500;
@@ -211,7 +213,35 @@ video {
   --clr-middlegray: #525252;
   --clr-darkblue: #2d3235;
   --clr-darkbluegreen: #495351;
+  --color-card: #fff;
+  --color-card-shadow: #777777;
   /*--------------------------------*/
+
+  &:has(header[value="dark"]) {
+    --clr-gray: var(--clr-grayblue);
+    --clr-black: #fff;
+    --clr-white: var(--clr-darkgray);
+    --clr-blue: var(--clr-darkblue);
+    --clr-green: var(--clr-darkbluegreen);
+    --color-card: #525252;
+    --color-card-shadow: rgba(82, 82, 82, 0.5);
+    --clr-lightgray: #fff;
+
+    body {
+      color: white;
+    }
+  }
+}
+/* remove animations for people who've turned them off */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 html {
@@ -234,10 +264,15 @@ body {
 .column {
   flex-direction: column;
 }
-.flex-basis-30 {
-  flex-basis: 30%;
+
+.flex-container {
+  flex-basis: 80%;
 }
+
 .flex-basis-40 {
+  flex-basis: 40%;
+}
+.flex-profile {
   flex-basis: 40%;
 }
 
@@ -274,10 +309,10 @@ body {
 }
 
 .wrap {
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 .wrap-reverse {
-  flex-wrap: wrap-reverse;
+  flex-wrap: nowrap;
 }
 
 .js-center {
@@ -286,6 +321,10 @@ body {
 
 .alg-center {
   align-items: center;
+}
+
+.alg-end {
+  align-items: flex-end;
 }
 
 .tx-center {
@@ -385,6 +424,10 @@ body {
 .bg-darkbluegreen {
   background-color: var(--clr-darkbluegreen);
 }
+.bg-card {
+  background-color: var(--color-card);
+}
+
 /*---font-size*/
 .fs-900 {
   font-size: var(--fs-900);
@@ -480,9 +523,27 @@ body {
   border: blue solid 2px;
 }
 
+.position-relative {
+  position: relative;
+}
+
+.position-absolute {
+  position: absolute;
+}
+
+.position-fix {
+  position: fixed;
+}
+
+.z-index-2 {
+  z-index: 2;
+}
+
+/*---Special Class---*/
+
 .profile-card {
   border-radius: 1rem;
-  box-shadow: 5px 5px var(--clr-lightgray);
+  box-shadow: 5px 5px var(--color-card-shadow);
 }
 
 .profileimg {
@@ -496,10 +557,10 @@ body {
 }
 
 .radio-btn {
-  width: 50px;
-  height: 30px;
-  padding: 5px;
-  background-color: #27173a;
+  width: 55px;
+  height: 25px;
+  padding: 4px 4px 5px 6px;
+  background-color: #e92577;
   border-radius: 15px;
   overflow: hidden;
   cursor: pointer;
@@ -507,11 +568,12 @@ body {
 
 .radio-inner {
   position: relative;
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   background-color: #ffc207;
   border-radius: 50%;
   transition: all 0.6s;
+  cursor: pointer;
 }
 
 .radio-inner::before {
@@ -521,19 +583,20 @@ body {
   left: -60%;
   width: 100%;
   height: 100%;
-  background-color: #27173a;
+  background-color: #e92577;
   border-radius: 50%;
   transform: scale(0);
   transition: all 0.6s;
 }
 
 .active {
-  transform: translateX(calc(50px - 30px));
+  transform: translateX(calc(50px - 26px));
 }
 
 .active::before {
-  left: -9px;
-  transform: scale(1);
+  left: -4px;
+  transform: scale(0.8);
+  cursor: pointer;
 }
 
 li {
@@ -547,10 +610,10 @@ picture {
   display: flex;
   justify-content: center;
   align-items: center;
-  bottom: 5.7rem;
+  bottom: 11.7rem;
 }
 
-picture img {
+picture img:nth-of-type(2) {
   position: absolute;
 }
 
@@ -559,15 +622,11 @@ img:first-of-type {
 }
 
 picture > img:last-of-type {
-  width: 92%;
+  max-width: 92%;
 }
 
 footer a:nth-of-type(1) {
   color: #1769ff;
-}
-
-footer a:nth-of-type(2) {
-  color: #0a0a14;
 }
 
 footer a:nth-of-type(3) {
@@ -576,4 +635,216 @@ footer a:nth-of-type(3) {
 
 footer a:nth-of-type(4) {
   color: #af0c48;
+}
+
+.polo-gray {
+  width: 8.4vw;
+  height: 8.4vw;
+  border: 1.3rem solid #d9d9d9;
+  border-radius: 50%;
+  bottom: -4.2vw;
+  right: 20%;
+  z-index: 1;
+}
+
+.polo-pink {
+  width: 8.4vw;
+  height: 8.4vw;
+  border: 1.3rem solid #ea2678;
+  border-radius: 50%;
+  right: -3vw;
+  top: -2vw;
+}
+
+.circle {
+  background-color: #d9d9d9;
+  width: 7.7vw;
+  height: 7.7vw;
+  border-radius: 50%;
+  top: -3.5vw;
+  left: 20%;
+}
+
+.diglet-gray {
+  width: 6vw;
+  height: 2.8vw;
+  background-color: #525252;
+  border-radius: 0rem 2rem 2rem 0rem;
+  bottom: 10%;
+  left: 0;
+}
+
+.diglet-pink {
+  width: 7.7vw;
+  height: 3vw;
+  background-color: #ea2678;
+  border-radius: 2rem 0 0 2rem;
+  top: 80%;
+  right: 0;
+}
+
+.stick-pink {
+  width: 10vw;
+  height: 2.2vw;
+  background-color: #ea2678;
+  border-radius: 0.4rem;
+  left: 0;
+  top: 25%;
+  z-index: 1;
+}
+
+.stick-blue {
+  width: 6vw;
+  height: 1.5vw;
+  background-color: #82bbff;
+  border-radius: 0.4rem;
+  left: 0;
+  top: 8%;
+  z-index: 1;
+}
+
+.bigstick-blue {
+  width: 23vw;
+  height: 1.5vw;
+  background-color: #82bbff;
+  border-radius: 0.4rem;
+  z-index: 1;
+  top: 33%;
+  left: 32%;
+}
+
+@media (max-width: 600px) {
+  .wrap-reverse {
+    flex-wrap: wrap-reverse;
+  }
+}
+
+@media (min-width: 300px) {
+  .flex-container {
+    flex-basis: 96%;
+  }
+  html,
+  body {
+    font-size: 9px;
+  }
+  .wrap {
+    flex-wrap: wrap;
+  }
+
+  .flex-profile {
+    flex-basis: 70%;
+  }
+}
+@media (min-width: 500px) {
+  .flex-container {
+    flex-basis: 92%;
+  }
+  html,
+  body {
+    font-size: 10px;
+  }
+  .flex-profile {
+    flex-basis: 40%;
+  }
+}
+@media (min-width: 800px) {
+  .flex-container {
+    flex-basis: 95%;
+  }
+  html,
+  body {
+    font-size: 11px;
+  }
+}
+@media (min-width: 1000px) {
+  .flex-container {
+    flex-basis: 88%;
+  }
+  html,
+  body {
+    font-size: 12px;
+  }
+}
+@media (min-width: 1200px) {
+  .flex-container {
+    flex-basis: 81%;
+  }
+  html,
+  body {
+    font-size: 13px;
+  }
+}
+@media (min-width: 1400px) {
+  .flex-container {
+    flex-basis: 74%;
+  }
+  html,
+  body {
+    font-size: 14px;
+  }
+}
+@media (min-width: 1600px) {
+  .flex-container {
+    flex-basis: 67%;
+  }
+  html,
+  body {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 1800px) {
+  .flex-container {
+    flex-basis: 60%;
+  }
+}
+
+.text-pink {
+  position: relative; /* Konumlandırma için gerekli */
+  z-index: 1;
+}
+
+.text-pink::after {
+  content: ""; /* İçerik eklemek için gerekli */
+  position: absolute; /* Konumlandırma için gerekli */
+  top: 2rem; /* Metnin altına 2 piksellik boşluk bırakır */
+  left: -1rem; /* Sol kenardan başlar */
+  width: 9.1rem; /* Metnin tam genişliğinde olacak */
+  height: 2rem; /* Çizginin kalınlığı */
+  background-color: #ea2678; /* Çizginin rengi */
+  border-radius: 5px; /* Çizginin köşelerinin yumuşatılması */
+  z-index: -1;
+}
+.text-blue {
+  position: relative; /* Konumlandırma için gerekli */
+  z-index: 1;
+}
+
+.text-blue::after {
+  content: ""; /* İçerik eklemek için gerekli */
+  position: absolute; /* Konumlandırma için gerekli */
+  top: 1rem; /* Metnin altına 2 piksellik boşluk bırakır */
+  left: -0.7rem; /* Sol kenardan başlar */
+  width: 5.5rem; /* Metnin tam genişliğinde olacak */
+  height: 1.3rem; /* Çizginin kalınlığı */
+  background-color: #82bbff; /* Çizginin rengi */
+  border-radius: 5px; /* Çizginin köşelerinin yumuşatılması */
+  z-index: -1;
+}
+
+.text-blue-big {
+  position: relative; /* Konumlandırma için gerekli */
+  z-index: 1;
+}
+
+.text-blue-big::after {
+  content: ""; /* İçerik eklemek için gerekli */
+  position: absolute; /* Konumlandırma için gerekli */
+  bottom: 0.2rem; /* Metnin altına 2 piksellik boşluk bırakır */
+  left: 7.8rem; /* Sol kenardan başlar */
+  width: 17rem; /* Metnin tam genişliğinde olacak */
+  height: 1.3rem; /* Çizginin kalınlığı */
+  background-color: #82bbff; /* Çizginin rengi */
+  border-radius: 5px; /* Çizginin köşelerinin yumuşatılması */
+  z-index: -1;
 }
