@@ -8,6 +8,7 @@ import vs from "./assets/Skills/vsLogo.png";
 import laptop from "./assets/Projects/laptop.png";
 import right from "./assets/Projects/right.png";
 import left from "./assets/Projects/left.png";
+import axios from "axios";
 
 export const skillsData = {
   en: {
@@ -102,29 +103,7 @@ export const profileData = {
     titles: ["Profil", "Temel Bilgiler"],
   },
 };
-/*
-export const profileData = {
-  birthday: {
-    en: { name: "Birth Date", value: "24.03.1996" },
-    tr: { name: "Doğum Tarihi", value: "24.03.1996" },
-  },
-  city: {
-    en: { name: "City", value: "Ankara" },
-    tr: { name: "İkamet Şehri", value: "Ankara" },
-  },
-  education: {
-    en: { name: "Education", value: "Hacettepe Ünv. Biyoloji Lisans, 2016" },
-    tr: {
-      name: "Eğitim Durumu",
-      value: "Hacettepe Ünv. Biyoloji Lisans, 2016",
-    },
-  },
-  preferred: {
-    en: { name: "Preferred Role", value: "Frontend,UI" },
-    tr: { name: "Tercih Ettiği Rol", value: "Frontend,UI" },
-  },
-};
-*/
+
 export const projectsData = {
   en: {
     title: "Projects",
@@ -217,3 +196,25 @@ export const footerData = {
   en: ["Let’s work together on", "your next product.", "Personal Blog"],
   tr: ["Bir sonraki projende", "birlikte çalışalım.", "Kişisel Blog"],
 };
+
+// Function to check and post data only once
+function postDataOnce(url, data, storageKey) {
+  const isPosted = true;
+  if (!isPosted) {
+    axios
+      .post(url, data)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => console.log(err));
+  }
+}
+
+// Posting data with checks
+const apiUrl = "https://6647084651e227f23ab0c91f.mockapi.io/api/aydata";
+
+postDataOnce(apiUrl, profileData, "profileDataPosted");
+postDataOnce(apiUrl, headerData, "headerDataPosted");
+postDataOnce(apiUrl, skillsData, "skillsDataPosted");
+postDataOnce(apiUrl, projectsData, "projectsDataPosted");
+postDataOnce(apiUrl, footerData, "footerDataPosted");

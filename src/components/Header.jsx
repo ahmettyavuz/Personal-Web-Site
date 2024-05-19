@@ -1,21 +1,25 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { headerData } from "../data";
 import useLocalStorage from "../hooks/useLocalStorage";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Context } from "../context/context";
 
 const Header = () => {
   const [darkMode, setDarkMode] = useLocalStorage("Theme", false);
-  const { lang, toogle } = useContext(Context);
+  const { lang, toogle, data } = useContext(Context);
 
   const toggleTheme = () => {
     setDarkMode(!darkMode);
   };
   const toggleWithDiv = (e) => {
-    toggleTheme(); // Button işlevini çağır
-    e.stopPropagation(); // Div'in ana elementlere tıklama olayını iletmemesini sağla
+    toggleTheme();
+    e.stopPropagation();
   };
+
+  console.log("dataaa", data);
+  if (!data || data.length === 0) {
+    return <div></div>;
+  }
 
   return (
     <>
@@ -43,7 +47,7 @@ const Header = () => {
               ></div>
             </button>
             <label htmlFor="mode" className="fw-700 lh-1 tx-gray uppercase">
-              {headerData[lang].selections.mode[darkMode ? 1 : 0]}{" "}
+              {data[0][lang].selections.mode[darkMode ? 1 : 0]}{" "}
             </label>
             <span>|</span>
             <button
@@ -52,7 +56,7 @@ const Header = () => {
               name="language"
               onClick={toogle}
             >
-              {headerData[lang].selections.language}
+              {data[0][lang].selections.language}
             </button>
           </div>
 
@@ -61,9 +65,9 @@ const Header = () => {
               style={{ flexBasis: "65%" }}
               className="flex column gap-3 position-relative"
             >
-              <div className="fs-700 fw-400">{headerData[lang].title}👋</div>
+              <div className="fs-700 fw-400">{data[0][lang].title}👋</div>
               <h1 className="text-pink fs-800 fw-500 lh-4 z-index-2">
-                {headerData[lang].content}
+                {data[0][lang].content}
               </h1>
               <div className="flex gap-2 padding-top-1">
                 <FontAwesomeIcon className="fa-3x" icon={faLinkedin} />
@@ -72,15 +76,15 @@ const Header = () => {
               </div>
               <div className="fs-500 fw-400 lh-2">
                 <p>
-                  {headerData[lang].text[0]}{" "}
-                  <span className="tx-red">{headerData[lang].text[1]}</span>{" "}
-                  {headerData[lang].text[2]}{" "}
-                  <span className="tx-red">{headerData[lang].text[3]}</span>{" "}
-                  {headerData[lang].text[4]}
+                  {data[0][lang].text[0]}{" "}
+                  <span className="tx-red">{data[0][lang].text[1]}</span>{" "}
+                  {data[0][lang].text[2]}{" "}
+                  <span className="tx-red">{data[0][lang].text[3]}</span>{" "}
+                  {data[0][lang].text[4]}
                 </p>
                 <p>
-                  {headerData[lang].text[5]} -{" "}
-                  <a href="pratamaiosi@gmail.com" className="tx-red">
+                  {data[0][lang].text[5]} -{" "}
+                  <a href="mailto:yavuzahmet555@gmail.com" className="tx-red">
                     pratamaiosi@gmail.com
                   </a>
                 </p>
