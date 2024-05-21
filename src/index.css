@@ -215,6 +215,7 @@ button {
   --clr-darkbluegreen: #495351;
   --color-card: #fff;
   --color-card-shadow: #777777;
+  --color-btn: #e92577;
   /*--------------------------------*/
 
   &:has(header[value="dark"]) {
@@ -226,6 +227,7 @@ button {
     --color-card: #525252;
     --color-card-shadow: rgba(82, 82, 82, 0.5);
     --clr-lightgray: #fff;
+    --color-btn: black;
 
     body {
       color: white;
@@ -358,7 +360,13 @@ body {
 .padding-top-3 {
   padding-top: 2rem;
 }
+.padding-top-4 {
+  padding-top: 5rem;
+}
 
+.padding-bottom-0 {
+  padding-bottom: 0.6rem;
+}
 .padding-bottom-1 {
   padding-bottom: 1rem;
 }
@@ -538,7 +546,15 @@ body {
 .z-index-2 {
   z-index: 2;
 }
-
+/*-----------*/
+.point {
+  cursor: pointer;
+}
+.underline {
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  text-underline-offset: 0.2rem;
+}
 /*---Special Class---*/
 
 .profile-card {
@@ -560,7 +576,7 @@ body {
   width: 55px;
   height: 25px;
   padding: 4px 4px 5px 6px;
-  background-color: #e92577;
+  background-color: var(--color-btn);
   border-radius: 15px;
   overflow: hidden;
   cursor: pointer;
@@ -583,7 +599,7 @@ body {
   left: -60%;
   width: 100%;
   height: 100%;
-  background-color: #e92577;
+  background-color: var(--color-btn);
   border-radius: 50%;
   transform: scale(0);
   transition: all 0.6s;
@@ -606,11 +622,11 @@ li {
 }
 
 picture {
-  position: relative;
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
-  bottom: 11.7rem;
+  bottom: -3rem;
 }
 
 picture img:nth-of-type(2) {
@@ -638,18 +654,18 @@ footer a:nth-of-type(4) {
 }
 
 .polo-gray {
-  width: 8.4vw;
-  height: 8.4vw;
+  width: 8rem;
+  height: 8rem;
   border: 1.3rem solid #d9d9d9;
   border-radius: 50%;
-  bottom: -4.2vw;
+  bottom: -4rem;
   right: 20%;
   z-index: 1;
 }
 
 .polo-pink {
-  width: 8.4vw;
-  height: 8.4vw;
+  width: 8rem;
+  height: 8rem;
   border: 1.3rem solid #ea2678;
   border-radius: 50%;
   right: -3vw;
@@ -658,16 +674,16 @@ footer a:nth-of-type(4) {
 
 .circle {
   background-color: #d9d9d9;
-  width: 7.7vw;
-  height: 7.7vw;
+  width: 7rem;
+  height: 7rem;
   border-radius: 50%;
-  top: -3.5vw;
+  top: -3.5rem;
   left: 20%;
 }
 
 .diglet-gray {
-  width: 6vw;
-  height: 2.8vw;
+  width: 6rem;
+  height: 2.8rem;
   background-color: #525252;
   border-radius: 0rem 2rem 2rem 0rem;
   bottom: 10%;
@@ -675,42 +691,62 @@ footer a:nth-of-type(4) {
 }
 
 .diglet-pink {
-  width: 7.7vw;
-  height: 3vw;
+  width: 7rem;
+  height: 3rem;
   background-color: #ea2678;
   border-radius: 2rem 0 0 2rem;
   top: 80%;
   right: 0;
 }
 
-.stick-pink {
-  width: 10vw;
-  height: 2.2vw;
-  background-color: #ea2678;
-  border-radius: 0.4rem;
-  left: 0;
-  top: 25%;
+.text-pink {
+  position: relative; /* Konumlandırma için gerekli */
   z-index: 1;
 }
 
-.stick-blue {
-  width: 6vw;
-  height: 1.5vw;
-  background-color: #82bbff;
-  border-radius: 0.4rem;
-  left: 0;
-  top: 8%;
+.text-pink::after {
+  content: ""; /* İçerik eklemek için gerekli */
+  position: absolute; /* Konumlandırma için gerekli */
+  top: 2rem; /* Metnin altına 2 piksellik boşluk bırakır */
+  left: -1rem; /* Sol kenardan başlar */
+  width: 9.1rem; /* Metnin tam genişliğinde olacak */
+  height: 2rem; /* Çizginin kalınlığı */
+  background-color: #ea2678; /* Çizginin rengi */
+  border-radius: 5px; /* Çizginin köşelerinin yumuşatılması */
+  z-index: -1;
+}
+.text-blue {
+  position: relative; /* Konumlandırma için gerekli */
   z-index: 1;
 }
 
-.bigstick-blue {
-  width: 23vw;
-  height: 1.5vw;
-  background-color: #82bbff;
-  border-radius: 0.4rem;
+.text-blue::after {
+  content: ""; /* İçerik eklemek için gerekli */
+  position: absolute; /* Konumlandırma için gerekli */
+  top: 1rem; /* Metnin altına 2 piksellik boşluk bırakır */
+  left: -0.7rem; /* Sol kenardan başlar */
+  width: 5.5rem; /* Metnin tam genişliğinde olacak */
+  height: 1.3rem; /* Çizginin kalınlığı */
+  background-color: #82bbff; /* Çizginin rengi */
+  border-radius: 5px; /* Çizginin köşelerinin yumuşatılması */
+  z-index: -1;
+}
+
+.text-blue-big {
+  position: relative; /* Konumlandırma için gerekli */
   z-index: 1;
-  top: 33%;
-  left: 32%;
+}
+
+.text-blue-big::after {
+  content: ""; /* İçerik eklemek için gerekli */
+  position: absolute; /* Konumlandırma için gerekli */
+  bottom: 0.2rem; /* Metnin altına 2 piksellik boşluk bırakır */
+  left: 7.8rem; /* Sol kenardan başlar */
+  width: 17rem; /* Metnin tam genişliğinde olacak */
+  height: 1.3rem; /* Çizginin kalınlığı */
+  background-color: #82bbff; /* Çizginin rengi */
+  border-radius: 5px; /* Çizginin köşelerinin yumuşatılması */
+  z-index: -1;
 }
 
 @media (max-width: 600px) {
@@ -797,54 +833,4 @@ footer a:nth-of-type(4) {
   .flex-container {
     flex-basis: 60%;
   }
-}
-
-.text-pink {
-  position: relative; /* Konumlandırma için gerekli */
-  z-index: 1;
-}
-
-.text-pink::after {
-  content: ""; /* İçerik eklemek için gerekli */
-  position: absolute; /* Konumlandırma için gerekli */
-  top: 2rem; /* Metnin altına 2 piksellik boşluk bırakır */
-  left: -1rem; /* Sol kenardan başlar */
-  width: 9.1rem; /* Metnin tam genişliğinde olacak */
-  height: 2rem; /* Çizginin kalınlığı */
-  background-color: #ea2678; /* Çizginin rengi */
-  border-radius: 5px; /* Çizginin köşelerinin yumuşatılması */
-  z-index: -1;
-}
-.text-blue {
-  position: relative; /* Konumlandırma için gerekli */
-  z-index: 1;
-}
-
-.text-blue::after {
-  content: ""; /* İçerik eklemek için gerekli */
-  position: absolute; /* Konumlandırma için gerekli */
-  top: 1rem; /* Metnin altına 2 piksellik boşluk bırakır */
-  left: -0.7rem; /* Sol kenardan başlar */
-  width: 5.5rem; /* Metnin tam genişliğinde olacak */
-  height: 1.3rem; /* Çizginin kalınlığı */
-  background-color: #82bbff; /* Çizginin rengi */
-  border-radius: 5px; /* Çizginin köşelerinin yumuşatılması */
-  z-index: -1;
-}
-
-.text-blue-big {
-  position: relative; /* Konumlandırma için gerekli */
-  z-index: 1;
-}
-
-.text-blue-big::after {
-  content: ""; /* İçerik eklemek için gerekli */
-  position: absolute; /* Konumlandırma için gerekli */
-  bottom: 0.2rem; /* Metnin altına 2 piksellik boşluk bırakır */
-  left: 7.8rem; /* Sol kenardan başlar */
-  width: 17rem; /* Metnin tam genişliğinde olacak */
-  height: 1.3rem; /* Çizginin kalınlığı */
-  background-color: #82bbff; /* Çizginin rengi */
-  border-radius: 5px; /* Çizginin köşelerinin yumuşatılması */
-  z-index: -1;
 }

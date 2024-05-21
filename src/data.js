@@ -103,7 +103,6 @@ export const profileData = {
     titles: ["Profil", "Temel Bilgiler"],
   },
 };
-
 export const projectsData = {
   en: {
     title: "Projects",
@@ -129,6 +128,7 @@ export const projectsData = {
         ],
       },
     ],
+    links: ["View on Github", "Go to app"],
   },
   tr: {
     title: "Projeler",
@@ -154,6 +154,7 @@ export const projectsData = {
         ],
       },
     ],
+    links: ["Github'ta görüntüle", "Uygulamaya git"],
   },
 };
 
@@ -196,25 +197,32 @@ export const footerData = {
   en: ["Let’s work together on", "your next product.", "Personal Blog"],
   tr: ["Bir sonraki projende", "birlikte çalışalım.", "Kişisel Blog"],
 };
+/*
+const url = "https://6647084651e227f23ab0c91f.mockapi.io/api/TR";
 
-// Function to check and post data only once
-function postDataOnce(url, data, storageKey) {
-  const isPosted = true;
-  if (!isPosted) {
-    axios
-      .post(url, data)
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((err) => console.log(err));
-  }
-}
+axios
+  .post(url, {
+    id: "1",
+    headerData: { ...headerData.tr },
+    projectsData: { ...projectsData.tr },
+    profileData: { ...profileData.tr },
+    skillsData: { ...skillsData.tr, skills: [...skillsData.skills] },
+    footerData: [...footerData.tr],
+  })
+  .then((res) => console.log(res.data))
+  .catch((err) => console.error());
 
-// Posting data with checks
-const apiUrl = "https://6647084651e227f23ab0c91f.mockapi.io/api/aydata";
+const url2 = "https://6647084651e227f23ab0c91f.mockapi.io/api/EN";
 
-postDataOnce(apiUrl, profileData, "profileDataPosted");
-postDataOnce(apiUrl, headerData, "headerDataPosted");
-postDataOnce(apiUrl, skillsData, "skillsDataPosted");
-postDataOnce(apiUrl, projectsData, "projectsDataPosted");
-postDataOnce(apiUrl, footerData, "footerDataPosted");
+axios
+  .post(url2, {
+    id: "1",
+    headerData: { ...headerData.en },
+    projectsData: { ...projectsData.en },
+    profileData: { ...profileData.en },
+    skillsData: { ...skillsData.en, skills: [...skillsData.skills] },
+    footerData: [...footerData.en],
+  })
+  .then((res) => console.log(res.data))
+  .catch((err) => console.error());
+*/

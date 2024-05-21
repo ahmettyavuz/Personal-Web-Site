@@ -4,22 +4,38 @@ import useLocalStorage from "../hooks/useLocalStorage";
 import { useContext, useEffect } from "react";
 import { Context } from "../context/context";
 
+import { toastFunc } from "../hooks/toast";
+
 const Header = () => {
   const [darkMode, setDarkMode] = useLocalStorage("Theme", false);
-  const { lang, toogle, data } = useContext(Context);
+  const [lang, setLang] = useLocalStorage("language", "TR");
+  const { data, sendRequest, METHODS } = useContext(Context);
 
-  const toggleTheme = () => {
-    setDarkMode(!darkMode);
-  };
-  const toggleWithDiv = (e) => {
-    toggleTheme();
-    e.stopPropagation();
-  };
+  useEffect(() => {
+    sendRequest({ url: `${lang}`, method: METHODS.GET });
+  }, []);
 
-  console.log("dataaa", data);
-  if (!data || data.length === 0) {
-    return <div></div>;
-  }
+  useEffect(() => {
+    sendRequest({
+      url: `${lang}`,
+      method: METHODS.GET,
+      callbackSuccess: () => toastFunc("success", lang, darkMode),
+      callbackError: () => toastFunc("error", lang, darkMode),
+    });
+    console.log(data);
+  }, [lang]);
+
+  const toogle = (e) => {
+    const name = e.target.name;
+    if (name === "mode") {
+      setDarkMode(!darkMode);
+    } else if (name === "language") {
+      setLang(lang === "TR" ? "EN" : "TR");
+    } else {
+      setDarkMode(!darkMode);
+      e.stopPropagation();
+    }
+  };
 
   return (
     <>
@@ -38,36 +54,41 @@ const Header = () => {
               id="mode"
               className="radio-btn"
               name="mode"
-              onClick={toggleTheme}
+              onClick={toogle}
             >
               <div
                 htmlFor="mode"
                 className={`radio-inner ${darkMode ? "active" : ""}`}
-                onClick={toggleWithDiv}
+                onClick={toogle}
               ></div>
             </button>
-            <label htmlFor="mode" className="fw-700 lh-1 tx-gray uppercase">
-              {data[0][lang].selections.mode[darkMode ? 1 : 0]}{" "}
+            <label
+              htmlFor="mode"
+              className="fw-700 lh-1 tx-gray uppercase point"
+            >
+              {data[0]?.headerData?.selections?.mode[darkMode ? 1 : 0]}{" "}
             </label>
             <span>|</span>
             <button
               data-cy="language-toggle"
-              className="tx-red bg-gray fw-700 lh-1 uppercase"
+              className="tx-red bg-gray fw-700 lh-1 uppercase point"
               name="language"
               onClick={toogle}
             >
-              {data[0][lang].selections.language}
+              {data[0]?.headerData?.selections?.language}
             </button>
           </div>
 
           <div className="flex space-between alg-center js-center gap-3 wrap-reverse padding-right-2 padding-left-2">
             <div
-              style={{ flexBasis: "65%" }}
+              style={{ flexBasis: "95%" }}
               className="flex column gap-3 position-relative"
             >
-              <div className="fs-700 fw-400">{data[0][lang].title}👋</div>
+              <div className="fs-700 fw-400">
+                {data[0]?.headerData?.title}👋
+              </div>
               <h1 className="text-pink fs-800 fw-500 lh-4 z-index-2">
-                {data[0][lang].content}
+                {data[0]?.headerData?.content}
               </h1>
               <div className="flex gap-2 padding-top-1">
                 <FontAwesomeIcon className="fa-3x" icon={faLinkedin} />
@@ -76,15 +97,18 @@ const Header = () => {
               </div>
               <div className="fs-500 fw-400 lh-2">
                 <p>
-                  {data[0][lang].text[0]}{" "}
-                  <span className="tx-red">{data[0][lang].text[1]}</span>{" "}
-                  {data[0][lang].text[2]}{" "}
-                  <span className="tx-red">{data[0][lang].text[3]}</span>{" "}
-                  {data[0][lang].text[4]}
+                  {data[0]?.headerData?.text[0]}{" "}
+                  <span className="tx-red">{data[0]?.headerData?.text[1]}</span>{" "}
+                  {data[0]?.headerData?.text[2]}{" "}
+                  <span className="tx-red">{data[0]?.headerData?.text[3]}</span>{" "}
+                  {data[0]?.headerData?.text[4]}
                 </p>
                 <p>
-                  {data[0][lang].text[5]} -{" "}
-                  <a href="mailto:yavuzahmet555@gmail.com" className="tx-red">
+                  {data[0]?.headerData?.text[5]} {"-> "}
+                  <a
+                    href="mailto:pratamaiosi@gmail.com"
+                    className="tx-red underline"
+                  >
                     pratamaiosi@gmail.com
                   </a>
                 </p>
