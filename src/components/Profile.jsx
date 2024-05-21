@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import { profileData } from "../data";
 import { Context } from "../context/context";
 
 const Profile = () => {

@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { Context } from "../context/context";
-import { skillsData } from "../data";
 
 const Skills = () => {
   const { data } = useContext(Context);

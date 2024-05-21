@@ -1,4 +1,3 @@
-import { footerData } from "../data";
 import { useContext } from "react";
 import { Context } from "../context/context";
 
