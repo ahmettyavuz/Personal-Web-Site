@@ -6,7 +6,6 @@ const Footer = () => {
   const { data } = useContext(Context);
 
   const direction = (e) => {
-    //window.scrollTo({ top: 0, behavior: "smooth" });
     document.documentElement.scrollTop = 0;
     e.prevent.default();
   };

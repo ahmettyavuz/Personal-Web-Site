@@ -1,4 +1,4 @@
-import { Slide, toast } from "react-toastify";
+import { Slide, Zoom, toast } from "react-toastify";
 
 export const toastFunc = (type, lang, darkMode) => {
   if (type == "success") {
@@ -17,7 +17,7 @@ export const toastFunc = (type, lang, darkMode) => {
         draggable: true,
         progress: undefined,
         theme: `${darkMode ? "dark" : "light"}`,
-        transition: Slide,
+        transition: Zoom,
       }
     );
   } else {
@@ -36,7 +36,7 @@ export const toastFunc = (type, lang, darkMode) => {
         draggable: true,
         progress: undefined,
         theme: `${darkMode ? "dark" : "light"}`,
-        transition: Slide,
+        transition: Zoom,
       }
     );
   }
