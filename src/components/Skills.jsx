@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { Context } from "../context/context";
+import java from "../assets/Skills/java.png";
 
 const Skills = () => {
   const { data } = useContext(Context);
