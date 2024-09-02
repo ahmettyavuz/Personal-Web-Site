@@ -17,7 +17,7 @@ const Projects = () => {
               key={item.title}
             >
               <article
-                className={`flex column gap-2 padding-top-2 padding-bottom-3 padding-left-1 padding-right-1  flex-basis-100 ${
+                className={`flex column gap-2 padding-top-2 padding-bottom-3 padding-left-1 padding-right-1 flex-basis-100 ${
                   index % 2 == 0 ? "bg-blue" : "bg-green"
                 }`}
                 style={{
@@ -37,10 +37,10 @@ const Projects = () => {
                   ))}
                 </ul>
                 <div className="flex js-between fw-600 fs-550 lh-2">
-                  <a href="https://github.com/Workintech" target="_blank">
+                  <a href={item.linkGitHub} target="_blank">
                     {data[0]?.projectsData.links[0]}
                   </a>
-                  <a href="https://github.com/Workintech" target="_blank">
+                  <a href={item.linkApp} target="_blank">
                     {data[0]?.projectsData.links[1] + "->"}
                   </a>
                 </div>
@@ -50,14 +50,26 @@ const Projects = () => {
                   index % 2 == 0 ? "bg-blue" : "bg-green"
                 } `}
                 style={{
-                  paddingBottom: "15rem",
                   position: "relative",
                   borderRadius: " 0 0 1rem 1rem",
                 }}
               >
-                <picture>
-                  <img src={item.images[0].src} alt={item.images[0].alt} />
-                  <img src={item.images[1].src} alt={item.images[1].alt} />
+                <picture style={{ position: "relative", width: "fit-content" }}>
+                  <img
+                    src={item.images[0].src}
+                    alt={item.images[0].alt}
+                    style={{ display: "block", width: "100%" }}
+                  />
+                  <img
+                    src={item.images[1].src}
+                    alt={item.images[1].alt}
+                    style={{
+                      position: "absolute",
+                      top: "5%",
+                      left: "15%",
+                      width: "70%",
+                    }}
+                  />
                 </picture>
               </div>
             </div>

@@ -3,6 +3,7 @@ import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import useLocalStorage from "../hooks/useLocalStorage";
 import { useContext, useEffect } from "react";
 import { Context } from "../context/context";
+import profil from "../assets/Projects/profil.png";
 
 import { toastFunc } from "../hooks/toast";
 
@@ -106,10 +107,10 @@ const Header = () => {
                 <p>
                   {data[0]?.headerData?.text[5]} {"-> "}
                   <a
-                    href="mailto:pratamaiosi@gmail.com"
+                    href="mailto:yavuzahmet555@gmail.com"
                     className="tx-red underline"
                   >
-                    pratamaiosi@gmail.com
+                    yavuzahmet555@gmail.com
                   </a>
                 </p>
               </div>

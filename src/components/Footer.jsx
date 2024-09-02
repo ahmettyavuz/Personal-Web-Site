@@ -20,7 +20,7 @@ const Footer = () => {
 
           <div className="flex column fs-500 fw-500 lh-2 padding-bottom-3">
             <a
-              href="https://github.com/Workintech"
+              href="https://github.com/ahmettyavuz"
               className=""
               target="_blank"
             >
@@ -30,7 +30,7 @@ const Footer = () => {
               {data[0]?.footerData[2]}
             </a>
             <a
-              href="https://github.com/Workintech"
+              href="https://www.linkedin.com/in/ahmet-yavuz-506573169/"
               className=""
               target="_blank"
             >
@@ -38,7 +38,7 @@ const Footer = () => {
               Linkedin
             </a>
             <a
-              href="https://github.com/Workintech"
+              href="mailto:yavuzahmet555@gmail.com"
               className=""
               target="_blank"
             >
