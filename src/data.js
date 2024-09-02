@@ -240,7 +240,7 @@ export const skillsData = {
     {
       name: "javascript",
       img: {
-        src: "/src/assets/Skills/jsLogo.png",
+        src: { js },
         alt: "javascript",
       },
     },
