@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Context } from "../context/context";
 import java from "../assets/Skills/java.png";
+import { skillsData } from "../data";
 
 const Skills = () => {
   const { data } = useContext(Context);
@@ -24,7 +25,7 @@ const Skills = () => {
             padding: "0 10px",
           }}
         >
-          {data[0]?.skillsData.skills.map((item) => (
+          {skillsData.skills.map((item) => (
             <figure
               key={item.name}
               className="flex column alg-center gap-1 fs-600 uppercase"

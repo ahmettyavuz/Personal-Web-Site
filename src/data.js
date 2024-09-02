@@ -10,7 +10,7 @@ import right from "./assets/Projects/right.png";
 import left from "./assets/Projects/left.png";
 import axios from "axios";
 
-export const skillsData = {
+export const skillssData = {
   en: {
     title: "Skills",
   },
@@ -226,3 +226,93 @@ axios
   .then((res) => console.log(res.data))
   .catch((err) => console.error());
 */
+
+export const skillsData = {
+  title: "Beceriler",
+  skills: [
+    {
+      name: "java",
+      img: {
+        src: "/src/assets/Skills/java.png",
+        alt: "java",
+      },
+    },
+    {
+      name: "javascript",
+      img: {
+        src: "/src/assets/Skills/jsLogo.png",
+        alt: "javascript",
+      },
+    },
+    {
+      name: "react",
+      img: {
+        src: "/src/assets/Skills/reactLogo.png",
+        alt: "react",
+      },
+    },
+    {
+      name: "redux",
+      img: {
+        src: "/src/assets/Skills/reduxLogo.png",
+        alt: "redux",
+      },
+    },
+    {
+      name: "node",
+      img: {
+        src: "/src/assets/Skills/nodeLogo.png",
+        alt: "node",
+      },
+    },
+    {
+      name: "vs code",
+      img: {
+        src: "/src/assets/Skills/vsLogo.png",
+        alt: "vs code",
+      },
+    },
+    {
+      name: "tailwind",
+      img: {
+        src: "/src/assets/Skills/tailwind.png",
+        alt: "tailwind",
+      },
+    },
+    {
+      name: "postgreSQL",
+      img: {
+        src: "/src/assets/Skills/postgreSql.png",
+        alt: "postgreSQL",
+      },
+    },
+    {
+      name: "Spring Boot",
+      img: {
+        src: "/src/assets/Skills/spring.png",
+        alt: "Spring Boot",
+      },
+    },
+    {
+      name: "Css",
+      img: {
+        src: "/src/assets/Skills/css1.png",
+        alt: "Css",
+      },
+    },
+    {
+      name: "Html",
+      img: {
+        src: "/src/assets/Skills/html1.png",
+        alt: "Html",
+      },
+    },
+    {
+      name: "figma",
+      img: {
+        src: "/src/assets/Skills/figmaLogo.png",
+        alt: "figma",
+      },
+    },
+  ],
+};
