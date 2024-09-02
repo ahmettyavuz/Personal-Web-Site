@@ -1,6 +1,10 @@
 import { useContext } from "react";
 import { Context } from "../context/context";
 
+import ecommerce from "../assets/Projects/ecommerce.png";
+import pizza from "../assets/Projects/pizza.png";
+import laptop from "../assets/Projects/laptop.png";
+
 const Projects = () => {
   const { data } = useContext(Context);
 
@@ -56,12 +60,17 @@ const Projects = () => {
               >
                 <picture style={{ position: "relative", width: "fit-content" }}>
                   <img
-                    src={item.images[0].src}
+                    src={laptop}
                     alt={item.images[0].alt}
                     style={{ display: "block", width: "100%" }}
                   />
                   <img
-                    src={item.images[1].src}
+                    src={
+                      item.title === "E-ticaret Web Sitesi" ||
+                      item.title === "E-commerce WebSite"
+                        ? ecommerce
+                        : pizza
+                    }
                     alt={item.images[1].alt}
                     style={{
                       position: "absolute",

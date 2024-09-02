@@ -1,10 +1,17 @@
 import redux from "./assets/Skills/reduxLogo.png";
 import figma from "./assets/Skills/figmaLogo.png";
 import js from "./assets/Skills/jsLogo.png";
-import node from "./assets/Skills/nodeLogo.png";
 import react from "./assets/Skills/reactLogo.png";
 import vs from "./assets/Skills/vsLogo.png";
+import java from "./assets/Skills/java.png";
+import tailwind from "./assets/Skills/tailwind.png";
+import sql from "./assets/Skills/postgreSql.png";
+import spring from "./assets/Skills/spring.png";
+import html from "./assets/Skills/html.png";
+import css from "./assets/Skills/css.png";
 
+import ecommerce from "./assets/Projects/ecommerce.png";
+import pizza from "./assets/Projects/pizza.png";
 import laptop from "./assets/Projects/laptop.png";
 import right from "./assets/Projects/right.png";
 import left from "./assets/Projects/left.png";
@@ -37,13 +44,6 @@ export const skillssData = {
       img: {
         src: redux, //"./assets/Skills/Redux",
         alt: "redux",
-      },
-    },
-    {
-      name: "node",
-      img: {
-        src: node,
-        alt: "node",
       },
     },
     {
@@ -233,7 +233,7 @@ export const skillsData = {
     {
       name: "java",
       img: {
-        src: "/src/assets/Skills/java.png",
+        src: java,
         alt: "java",
       },
     },
@@ -254,63 +254,56 @@ export const skillsData = {
     {
       name: "redux",
       img: {
-        src: "/src/assets/Skills/reduxLogo.png",
+        src: redux,
         alt: "redux",
-      },
-    },
-    {
-      name: "node",
-      img: {
-        src: "/src/assets/Skills/nodeLogo.png",
-        alt: "node",
       },
     },
     {
       name: "vs code",
       img: {
-        src: "/src/assets/Skills/vsLogo.png",
+        src: vs,
         alt: "vs code",
       },
     },
     {
       name: "tailwind",
       img: {
-        src: "/src/assets/Skills/tailwind.png",
+        src: tailwind,
         alt: "tailwind",
       },
     },
     {
       name: "postgreSQL",
       img: {
-        src: "/src/assets/Skills/postgreSql.png",
+        src: sql,
         alt: "postgreSQL",
       },
     },
     {
       name: "Spring Boot",
       img: {
-        src: "/src/assets/Skills/spring.png",
+        src: spring,
         alt: "Spring Boot",
       },
     },
     {
       name: "Css",
       img: {
-        src: "/src/assets/Skills/css1.png",
+        src: css,
         alt: "Css",
       },
     },
     {
       name: "Html",
       img: {
-        src: "/src/assets/Skills/html1.png",
+        src: html,
         alt: "Html",
       },
     },
     {
       name: "figma",
       img: {
-        src: "/src/assets/Skills/figmaLogo.png",
+        src: figma,
         alt: "figma",
       },
     },
