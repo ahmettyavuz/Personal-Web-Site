@@ -215,7 +215,7 @@ button {
   --clr-darkbluegreen: #495351;
   --color-card: #fff;
   --color-card-shadow: #777777;
-  --color-btn: #e92577;
+  --color-btn: #af0c48;
   /*--------------------------------*/
 
   &:has(header[value="dark"]) {
@@ -664,7 +664,7 @@ footer a:nth-of-type(4) {
 .polo-pink {
   width: 8rem;
   height: 8rem;
-  border: 1.3rem solid #ea2678;
+  border: 1.3rem solid orange;
   border-radius: 50%;
   right: -3vw;
   top: -2vw;
@@ -691,7 +691,7 @@ footer a:nth-of-type(4) {
 .diglet-pink {
   width: 7rem;
   height: 3rem;
-  background-color: #ea2678;
+  background-color: orange;
   border-radius: 2rem 0 0 2rem;
   top: 80%;
   right: 0;
@@ -709,7 +709,7 @@ footer a:nth-of-type(4) {
   left: -1rem; /* Sol kenardan başlar */
   width: 9.1rem; /* Metnin tam genişliğinde olacak */
   height: 2rem; /* Çizginin kalınlığı */
-  background-color: #ea2678; /* Çizginin rengi */
+  background-color: orange; /* Çizginin rengi */
   border-radius: 5px; /* Çizginin köşelerinin yumuşatılması */
   z-index: -1;
 }
@@ -740,7 +740,7 @@ footer a:nth-of-type(4) {
   position: absolute; /* Konumlandırma için gerekli */
   bottom: 0.2rem; /* Metnin altına 2 piksellik boşluk bırakır */
   left: 7.8rem; /* Sol kenardan başlar */
-  width: 17rem; /* Metnin tam genişliğinde olacak */
+  width: 13rem; /* Metnin tam genişliğinde olacak */
   height: 1.3rem; /* Çizginin kalınlığı */
   background-color: #82bbff; /* Çizginin rengi */
   border-radius: 5px; /* Çizginin köşelerinin yumuşatılması */
