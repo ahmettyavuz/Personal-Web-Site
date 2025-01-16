@@ -92,10 +92,22 @@ const Header = () => {
                 {data[0]?.headerData?.content}
               </h1>
               <div className="flex gap-2 padding-top-1">
-                <FontAwesomeIcon className="fa-3x" icon={faLinkedin} />
-                <FontAwesomeIcon className="fa-3x" icon={faGithub} />
-                <i></i>
+                <a
+                  href="https://www.linkedin.com/in/ahmet-yavuz-506573169"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FontAwesomeIcon className="fa-3x" icon={faLinkedin} />
+                </a>
+                <a
+                  href="https://github.com/AhmettYavuz?tab=overview&from=2024-04-01&to=2024-04-18"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FontAwesomeIcon className="fa-3x" icon={faGithub} />
+                </a>
               </div>
+
               <div className="fs-500 fw-400 lh-2">
                 <p>
                   {data[0]?.headerData?.text[0]}{" "}
